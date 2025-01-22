@@ -3,7 +3,10 @@ import re
 import vim
 from subprocess import PIPE,Popen
 from threading import Thread
-from Queue import Queue, Empty
+try:
+    from queue import Queue, Empty
+except ImportError: # might by python 2
+    from Queue import Queue, Empty
 fstarpath='fstar.exe'
 fstarbusy=0
 fstarcurrentline=0
