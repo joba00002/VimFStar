@@ -62,7 +62,7 @@ def fstar_writeinter (s) :
 
 def fstar_init () :
     global fst,interout
-    fst=Popen([fstarpath,'--in'],stdin=PIPE, stdout=PIPE,bufsize=1,close_fds=ON_POSIX)
+    fst=Popen([fstarpath,'--in'],stdin=PIPE, stdout=PIPE,close_fds=ON_POSIX)
     interout=Queue()
     t=Thread(target=fstar_enqueue_output,args=(fst.stdout,interout))
     t.daemon=True
